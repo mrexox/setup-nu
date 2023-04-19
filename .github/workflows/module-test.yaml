@@ -34,7 +34,7 @@ jobs:
     - name: Setup nu@latest
       uses: hustcer/setup-nu@develop
       with:
-        version: '0.77'
+        version: '*'
         enable-plugins: true
       env:
         ACTIONS_STEP_DEBUG: true
