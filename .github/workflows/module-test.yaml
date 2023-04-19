@@ -73,7 +73,7 @@ jobs:
         # print (get-env 'ABC-XYZ' 'DEFAULT-ABC-XYZ')
         # print 'Current NU_LIB_DIRS:'
         # print $env.NU_LIB_DIRS
-    - name: Test NU_LIB_DIRS 1
+    - name: Test NU_LIB_DIRS 2
       run: |
         print 'Current NU_LIB_DIRS: '
         print $env.NU_LIB_DIRS
