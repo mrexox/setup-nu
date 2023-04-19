@@ -7,7 +7,7 @@
 # The following lines were used to fix `× Plugin failed to load: No such file or directory (os error 2)`
 let config_path = ($nu.env-path | path dirname)
 let config_prefix = 'https://raw.githubusercontent.com/nushell/nushell/main/crates/nu-utils/src'
-aria2c $'($config_prefix)/sample_config/default_env.nu' -o env.nu -d $config_path
+cp default-env.nu $'($config_path)/env.nu'
 aria2c $'($config_prefix)/sample_config/default_config.nu' -o config.nu -d $config_path
 
 def register-plugins [] {
