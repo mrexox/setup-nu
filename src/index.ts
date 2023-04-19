@@ -28,6 +28,13 @@ async function main() {
       console.log('Running ./nu/register-plugins.nu to register plugins...');
       shell.exec('nu ./nu/register-plugins.nu');
     }
+    const modules = process.env.NU_MODULE_DIRS;
+    if (modules) {
+      // The exported variable might be override by the following steps.
+      core.exportVariable('NU_LIB_DIRS', 'EXPORT-VAR-WILL-BE-OVERRIDDEN');
+      core.exportVariable('NU_NOT_EXIST', 'EXPORT-NONE-EXIST-VAR-WORKS');
+      shell.exec('nu ./nu/prepare.nu');
+    }
   } catch (err) {
     core.setFailed(err.message);
   }
