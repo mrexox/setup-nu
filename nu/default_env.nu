@@ -86,18 +86,14 @@ let-env NU_PLUGIN_DIRS = [
 # let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
 # To add entries to the library search path, you can use the following pattern:
-def-env setup-lib-dirs [] {
+let module_dirs = ($env | get -i NU_MODULE_DIRS | default '' | str trim)
+if ($module_dirs | is-empty) { return }
 
-    let module_dirs = ($env | get -i NU_MODULE_DIRS | default '' | str trim)
-    if ($module_dirs | is-empty) { return }
-
-    let dirs = (
-        $module_dirs
-          | split row ';'
-          | each {|p| ($p | str trim | path expand) }
-          | filter {|p| ($p | path exists) }
-    )
-    let-env NU_LIB_DIRS = ($env.NU_LIB_DIRS | append $dirs)
-}
-
-setup-lib-dirs
+let dirs = (
+    $module_dirs
+        | split row ';'
+        | each {|p| ($p | str trim | path expand) }
+        | filter {|p| ($p | path exists) }
+)
+print $'Adding module directories to search path: ($dirs)'
+let-env NU_LIB_DIRS = ($env.NU_LIB_DIRS | append $dirs)
