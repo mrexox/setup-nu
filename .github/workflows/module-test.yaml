@@ -78,8 +78,8 @@ jobs:
         cp nu/common.nu ($nu.config-path | path dirname | path join 'scripts')
         print 'Current NU_LIB_DIRS: '
         print $env.NU_LIB_DIRS
-        print (ls $env.NU_LIB_DIRS)
-    - run: print (ls $env.NU_LIB_DIRS)
+        print (ls ($env.NU_LIB_DIRS | get 0))
+    - run: print (ls ($env.NU_LIB_DIRS | get 0))
 
 
 
