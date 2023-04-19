@@ -65,10 +65,10 @@ jobs:
           print $env.NU_LIB_DIRS
         }
         setup-lib-dirs
-        use common.nu [get-env]
-        print (get-env 'ABC-XYZ' 'DEFAULT-ABC-XYZ')
-        print 'Current NU_LIB_DIRS:'
-        print $env.NU_LIB_DIRS
+        # use common.nu [get-env]
+        # print (get-env 'ABC-XYZ' 'DEFAULT-ABC-XYZ')
+        # print 'Current NU_LIB_DIRS:'
+        # print $env.NU_LIB_DIRS
 
 
 
