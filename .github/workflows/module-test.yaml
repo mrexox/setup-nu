@@ -42,6 +42,10 @@ jobs:
     - name: You can run bash commands, too
       run: pwd && ls -la
       shell: bash
+    - name: Test NU_LIB_DIRS 1
+      run: |
+        print 'Current NU_LIB_DIRS: '
+        print $env.NU_LIB_DIRS
     - name: Default shell will be `nu`
       run: |
         print $'Nu version info:(char nl)'; print (version)
@@ -69,6 +73,10 @@ jobs:
         # print (get-env 'ABC-XYZ' 'DEFAULT-ABC-XYZ')
         # print 'Current NU_LIB_DIRS:'
         # print $env.NU_LIB_DIRS
+    - name: Test NU_LIB_DIRS 1
+      run: |
+        print 'Current NU_LIB_DIRS: '
+        print $env.NU_LIB_DIRS
 
 
 
