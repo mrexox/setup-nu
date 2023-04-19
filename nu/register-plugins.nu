@@ -21,3 +21,5 @@ def register-plugins [] {
 
 register-plugins
 print $"(char nl)Plugins registered successfully"
+
+print (open $'($config_path)/env.nu')
