@@ -6,6 +6,7 @@ on:
       - main
       - develop
       - release/*
+      - feature/nu-lib
     paths-ignore:
       - '**.md'
 
@@ -31,7 +32,7 @@ jobs:
     - name: Setup nu@latest
       uses: hustcer/setup-nu@develop
       with:
-        check-latest: true
+        version: '0.77'
         enable-plugins: true
       env:
         ACTIONS_STEP_DEBUG: true
@@ -62,13 +63,10 @@ jobs:
           print $env.NU_LIB_DIRS
         }
         setup-lib-dirs
-    - name: Test use nu modules here
-      run: |
-        # use common.nu [get-env]
-        # print (get-env 'ABC-XYZ' 'DEFAULT-ABC-XYZ')
+        use common.nu [get-env]
+        print (get-env 'ABC-XYZ' 'DEFAULT-ABC-XYZ')
         print 'Current NU_LIB_DIRS:'
         print $env.NU_LIB_DIRS
-        print (open $nu.env-path)
 
 
 
