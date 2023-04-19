@@ -80,7 +80,12 @@ jobs:
         print 'Current NU_LIB_DIRS: '
         print $env.NU_LIB_DIRS
         print (ls -l ($env.NU_LIB_DIRS | get 0 | path dirname))
-    - run: print (ls ($env.NU_LIB_DIRS | get 0))
+    - name: Test Use Nu Modules
+      run: |
+        use common.nu [get-env]
+        print 'Available Nu Modules:'
+        print (ls ($env.NU_LIB_DIRS | get 0))
+        print (get-env 'ABC-XYZ' 'DEFAULT-ABC-XYZ')
 
 
 
