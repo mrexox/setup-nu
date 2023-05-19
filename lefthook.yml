@@ -9,8 +9,8 @@ skip_output:
   - summary           # Skips summary block (successful and failed steps) printing
   - success           # Skips successful steps printing
   - failure           # Skips failed steps printing
-  - execution
-  # - execution_out     # Skips printing successfully executed commands' output (but still prints failed executions)
+  - execution         # I want to skip all execution printing
+  # - execution_out   # I don't want to Skip printing successfully executed commands' output
 pre-push:
   scripts:
     'sync.sh':
